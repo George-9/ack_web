@@ -1,0 +1,149 @@
+/*
+* containers and other measure elements
+*/
+.fx-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.fx-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.f-w {
+    width: 100%;
+}
+
+.f-h {
+    height: 100%;
+}
+
+.h-fit-content {
+    height: fit-content;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+
+
+.just-center {
+    justify-content: center;
+}
+
+.just-end {
+    justify-content: end;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.a-s {
+    align-items: start;
+}
+
+.a-c {
+    align-items: center;
+}
+
+.a-e {
+    align-items: end;
+}
+
+.a-bl {
+    align-items: baseline;
+}
+
+.txt-s {
+    text-align: start;
+}
+
+.txt-c {
+    text-align: center;
+}
+
+.txt-e {
+    text-align: end;
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.scroll-x {
+    overflow-x: auto;
+}
+
+/* 
+ * special/marked elements 
+ */
+.content {
+    background-color: white;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #80808042;
+}
+
+.outlined {
+    width: fit-content;
+    padding: 5px;
+    outline: 1px solid grey;
+}
+
+.circle-outlined {
+    width: fit-content;
+    padding: 5px;
+    outline: 1px solid grey;
+    border-radius: 50px;
+}
+
+
+.hide-scroll-x {
+    overflow-x: hidden;
+}
+
+.hide-scroll-y {
+    overflow-y: hidden;
+}
+
+.title {
+    font-weight: 900;
+    color: rgb(161, 45, 136);
+}
+
+
+.c-p {
+    cursor: pointer;
+}
+
+.highlightable:hover {
+    background-color: gainsboro;
+}
+
+
+.m-margin-top {
+    margin-top: 10px;
+}
+
+.bi-pad {
+    padding: 7px;
+}
+
+.disp-none {
+    display: none !important;
+}
+
+.f-a-w {
+    width: -webkit-fill-available;
+}

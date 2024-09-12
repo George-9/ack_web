@@ -1,0 +1,15 @@
+@media print {
+    table {
+        border-collapse: collapse !important;
+    }
+
+    tr,
+    td {
+        border: 1px solid grey;
+    }
+
+    thead,
+    tfoot {
+        font-weight: 500;
+    }
+}

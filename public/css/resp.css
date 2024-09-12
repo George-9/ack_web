@@ -1,0 +1,122 @@
+@media screen and (max-width: 800px) {
+    .w-d {
+        display: none;
+    }
+
+    .drawer {
+        display: none;
+
+        justify-content: center;
+
+        height: 0vh;
+        width: 100%;
+        max-width: 100% !important;
+
+        padding-inline: 10px;
+        padding-top: 20px;
+
+        position: fixed;
+        top: 0px;
+        left: 0px;
+
+        overflow-x: hidden;
+        padding: 10px;
+        padding-top: 30px;
+        padding-inline-end: 10px;
+
+        /* background-color: #060e2be3; */
+        background-color: white;
+
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .drawer div {
+        width: 100%;
+    }
+
+    .drawer p {
+        padding-left: 20px;
+    }
+
+    .content {
+        width: 100% !important;
+    }
+
+    .drawer a {
+        display: flex;
+        margin: 10px;
+        padding: 3px;
+        outline: 1px solid white;
+        width: 200px;
+    }
+
+    .drawer :first-of-type(div) {
+        overflow-y: scroll !important;
+    }
+
+    .not-full-screen-modal-child,
+    .modal-child {
+        width: 100% !important;
+        height: 100% !important;
+
+        background-color: white;
+        overflow: hidden;
+        cursor: default;
+    }
+
+
+    /* FullCalendar */
+    .fc {
+        width: 98%;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .s-d {
+        display: none;
+    }
+
+    .drawer {
+        height: 90% !important;
+        padding-bottom: 48px !important;
+        flex: auto;
+        flex-shrink: 1;
+        flex-grow: 1;
+        opacity: 1 !important;
+        height: 100vh !important;
+        overflow-y: hidden !important;
+        border-right: 1px solid #47474747;
+    }
+
+    .centered-view {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .drawer>.f-h {
+        height: 90vh;
+        padding: 10px !important;
+    }
+
+
+    nav .bi {
+        color: gray;
+    }
+
+    .content {
+        flex: 5;
+        height: 100% !important;
+    }
+
+    .not-full-screen-modal-child {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    /* FullCalendar */
+    .fc {
+        max-width: 70%;
+    }
+}

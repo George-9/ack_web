@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Data Manager</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <nav class="fx-row f-w space-between">
+        <h3 class="title">PDM</h3>
+
+        <div class="fx-row f-w f-h just-end txt-c">
+            <!-- menu icon -->
+            <p class="s-d drawer-toggle"><i class="bi bi-justify"></i></p>
+
+            <p class="w-d">
+                <a href=""><i class="bi bi-file-earmark-text"></i>reports</a>
+            </p>
+
+            <p class="w-d">
+                <a href=""><i class="bi bi-feather"></i> registry</a>
+            </p>
+
+            <p class="w-d">
+                <a href=""><i class="bi bi-person"></i>profile</a>
+            </p>
+        </div>
+    </nav>
+
+    <div class="container fx-row">
+
+        <div class="drawer fx-col">
+            <!-- CLOSE ELEMENT -->
+            <p class="s-d fx-row just-end f-w txt-e drawer-toggle" style="padding-right: 70px;">
+                <i class="bi bi-x-lg"></i>
+            </p>
+
+            <div class="fx-col f-h scroll-y hide-scroll-x txt-c a-c"
+                style="width: 80%; padding: 10px; padding-top: 30px;">
+
+                <div class="txt-s">
+                    <h3 class="heading">Miscellenious</h3>
+                    <p class="txt-e just-start fx-row a-c"><a href=""><i class="bi bi-people"></i> members</a></p>
+                    <p class="txt-c just-start fx-row a-c">
+                        <a href=""><i class="bi bi-opencollective"></i>Groups</a>
+                    </p>
+
+                    <p class="txt-c j-start fx-row a-c">
+                        <a href=""><span class="material-symbols-outlined">church</span>missions</a>
+                    </p>
+                </div>
+
+                <div class="txt-s">
+                    <h3 class="heading">Finance</h3>
+                    <p class="txt-e just-start fx-row a-c">
+                        <a href=""> <span class="material-symbols-outlined">payments</span> Offering</a>
+                    </p>
+                    <p class="txt-e just-start fx-row a-c">
+                        <a href=""><span class="material-symbols-outlined">redeem</span> Tithe</a>
+                    </p>
+                    <p class="txt-e just-start fx-row a-c">
+                        <a href=""><span class="material-symbols-outlined"> foundation</span> Projects</a>
+                    </p>
+                </div>
+
+                <div class="txt-s s-d">
+                    <h3 class="heading">Registry</h3>
+                    <p class="txt-e just-start fx-row a-c">
+                        <a href=""><span class="material-symbols-outlined"> group_add</span>members</a>
+                    </p>
+                </div>
+
+                <div class="txt-s s-d">
+                    <h3 class="heading">Reports</h3>
+                    <p class="s-d">
+                        <a href=""><i class="bi bi-file-earmark-text"></i>all reports</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content fx-col">
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/components/drawer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Data Manager</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+
+    <!-- full calendar -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.js"></script>
+
+    <!-- AG Datagrid -->
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+
+    <!-- xlsx -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --fc-small-font-size: .85em;
+            --fc-page-bg-color: #fff;
+            --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
+            --fc-neutral-text-color: #808080;
+            --fc-border-color: #ddd;
+
+            --fc-button-text-color: #fff;
+            --fc-button-bg-color: #2C3E50;
+            --fc-button-border-color: #2C3E50;
+            --fc-button-hover-bg-color: #1e2b37;
+            --fc-button-hover-border-color: #1a252f;
+            --fc-button-active-bg-color: #1a252f;
+            --fc-button-active-border-color: #151e27;
+
+            --fc-event-bg-color: #3788d8;
+            --fc-event-border-color: #3788d8;
+            --fc-event-text-color: #fff;
+            --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+
+            --fc-more-link-bg-color: #d0d0d0;
+            --fc-more-link-text-color: inherit;
+
+            --fc-event-resizer-thickness: 8px;
+            --fc-event-resizer-dot-total-width: 8px;
+            --fc-event-resizer-dot-border-width: 1px;
+
+            --fc-non-business-color: rgba(215, 215, 215, 0.3);
+            --fc-bg-event-color: rgb(143, 223, 130);
+            --fc-bg-event-opacity: 0.3;
+            --fc-highlight-color: rgba(188, 232, 241, 0.3);
+            --fc-today-bg-color: rgba(255, 220, 40, 0.15);
+            --fc-now-indicator-color: red;
+        }
+
+        .fc .fc-col-header-cell-cushion {
+            /* needs to be same precedence */
+            padding-top: 1px;
+            /* an override! */
+            padding-bottom: 1px;
+            /* an override! */
+        }
+
+        .fc {
+            height: 500px;
+            width: 90%;
+            color: #1e2b37;
+        }
+
+
+        .fc .fc-button {
+            max-width: 80px;
+            margin: 3px;
+            margin-left: 10px;
+        }
+
+
+        .fc-event {
+            background-color: #151e27;
+            color: #1a252f;
+        }
+
+        .fc-day {
+            color: black;
+        }
+
+        .fc-daygrid-block-event .fc-event-time,
+        .fc-daygrid-block-event .fc-event-title {
+            color: green;
+        }
+
+        #calendar a {
+            cursor: pointer;
+        }
+
+        .fc .fc-list-event {
+            background-color: whitesmoke;
+        }
+
+        .fc .fc-list-event:hover {
+            background-color: gainsboro;
+        }
+
+        .fc-h-event .fc-event-title-container {
+            background-color: rgb(161, 45, 136);
+        }
+
+        .view1 {
+            border: 1px solid rgb(161, 45, 136);
+            padding-left: 20px;
+            border-radius: 10px;
+        }
+
+        .view2 {
+            margin-left: 5px;
+            border: 1px solid rgb(161, 45, 136);
+            padding-right: 20px;
+
+            border-radius: 10px;
+        }
+
+        /* custom FullCalendar buttons */
+        .view-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            margin-bottom: 10px;
+            background-color: rgb(161, 45, 136);
+            color: white;
+            /* #bacae7;*/
+            border: none;
+            border-radius: 3px;
+            padding: 10px;
+            width: 50px;
+            height: 30px;
+        }
+
+        .view-buttons:hover {
+            padding: 10px;
+        }
+
+        .fc .fc-toolbar.fc-header-toolbar {
+            width: max-content;
+            text-align: left;
+            color: rgb(161, 45, 136);
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="fx-row f-w space-between">
+        <div class="fx-col f-w">
+            <h3 id="church-name" style="color: rgb(161, 45, 136); font-weight: 900; text-transform: uppercase;"></h3>
+        </div>
+
+        <div class="fx-row f-w f-h just-end txt-c">
+            <!-- menu icon -->
+
+            <p id="v-mode">
+                <i class="bi bi-arrows-fullscreen"></i>
+            </p>
+
+            <p class="s-d drawer-toggle"><i class="bi bi-justify"></i></p>
+
+            <!-- <p class="w-d" id="registry">
+                <a><i class="bi bi-feather"></i> registry</a>
+            </p> -->
+            <!-- 
+            <p class="w-d" id="reports">
+                <a><i class="bi bi-file-earmark-text"></i>reports</a>
+            </p> -->
+
+            <p class="w-d" id="profile-setting-view">
+                <a><i class="bi bi-person"></i>profile</a>
+            </p>
+        </div>
+    </nav>
+
+    <div class="container fx-row">
+        <div class="drawer">
+            <!-- CLOSE ELEMENT -->
+            <p class="s-d fx-row just-end f-w drawer-toggle" style="position: fixed; top: 0px; padding-right: 20px;">
+                <i class="bi bi-x-lg"></i>
+            </p>
+
+            <div class="drawer-container f-w f-h just-start fx-col scroll-y hide-scroll-x"></div>
+        </div>
+
+        <div class="content centered-view just-start hide-scroll-x a-c f-w">
+            <div class="full-width fx-col a-c" style="min-width: 98%">
+                <div class="fx-row just-start">
+                    <h3 id="events-count"></h3>
+                </div>
+
+                <!-- Calendar -->
+                <div class="f-w fx-row just-center scroll-x">
+                    <div id="nav-buttons" class="fx-row view1">
+                        <button id="prev-button" class="view-buttons">Prev</button>
+                        <button id="next-button" class="view-buttons">Next</button>
+                        <button id="today-button" class="view-buttons">Today</button>
+                    </div>
+
+                    <div id="view-buttons" class="fx-row view2">
+                        <button id="month-view" class="view-buttons">Month</button>
+                        <button id="week-view" class="view-buttons">Week</button>
+                        <button id="day-view" class="view-buttons">Day</button>
+                    </div>
+                </div>
+                <div id="calendar" class="fx-col" style="display: block;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/components/actions/drawer.js"></script>
+    <script type="module" src="../scripts/church_profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+.container {
+    height: 100%;
+}
+
+.drawer,
+.content {
+    scrollbar-color: red;
+    height: 100%;
+    padding: 2px;
+}
+
+.content {
+    overflow-y: scroll;
+}
+
+.grid {
+    display: grid;
+}
+
+
+.drawer {
+    height: 100vh;
+
+    flex-direction: column !important;
+
+    transition-property: height opacity;
+    transition-duration: 800ms;
+    transition-delay: 120ms;
+
+    text-align: center;
+    align-items: center;
+
+    background-color: rgb(173, 98, 173);
+    /* color: rgb(83, 76, 76); */
+
+    overflow-y: scroll;
+}
+
+.drawer p {
+    cursor: pointer;
+}
+
+.drawer:first-of-type(div) {
+    text-align: center;
+    align-items: center;
+}
+
+
+.drawer a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+
+    color: white;
+    /* color: rgb(83, 76, 76); */
+    font-weight: 'bold';
+    color: 'darkgrey';
+}
+
+div a:hover,
+.drawer p:hover {
+    text-decoration: underline dashed !important;
+}
+
+.drawer>p>a {
+    padding-right: 10px;
+}
+
+.drawer.heading {
+    width: 200px;
+    text-align: start;
+}
+
+.drawer i,
+.drawer span {
+    color: white;
+    /* color: rgb(83, 76, 76); */
+    padding: 2px;
+    font-weight: 'bold';
+    color: 'darkgrey';
+}
+
+
+.button {
+    background-color: rgb(161, 45, 136);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    opacity: .7;
+}
+
+.a p {
+    cursor: pointer;
+}
+
+/* moderate padding for all elements */
+.m-pad {
+    padding: 10px;
+}
+
+.content {
+    margin: 0px;
+}
+
+.bi-pad {
+    box-sizing: border-box;
+    padding-right: 10px;
+}
